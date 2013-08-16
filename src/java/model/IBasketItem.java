@@ -7,7 +7,7 @@ package model;
 
 /**
  *
- * @author fer
+ * @author Fernando Garcia Sanjuan, <fgs@kth.se>, <fdosanjuan@gmail.com>
  */
 public interface IBasketItem
 {

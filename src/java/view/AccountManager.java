@@ -17,7 +17,7 @@ import model.Account;
 
 /**
  *
- * @author alberto
+ * @author Alberto Lorente Leal <albll@kth.se>, <a.lorenteleal@gmail.com
  */
 @Named(value = "accountManager")
 @ConversationScoped

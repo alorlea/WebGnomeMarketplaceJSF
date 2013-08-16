@@ -19,7 +19,7 @@ import model.BasketItem;
 
 /**
  *
- * @author fer
+ * @author Fernando Garcia Sanjuan, <fgs@kth.se>, <fdosanjuan@gmail.com>
  */
 @Named(value = "gnomeManager")
 @ConversationScoped

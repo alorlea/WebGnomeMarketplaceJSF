@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author alberto
+ * @author Alberto Lorente Leal <albll@kth.se>, <a.lorenteleal@gmail.com
  */
 public interface IAccount {
     public String getUsername();

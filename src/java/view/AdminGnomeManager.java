@@ -18,7 +18,7 @@ import model.Gnome;
 
 /**
  *
- * @author fer
+ * @author Fernando Garcia Sanjuan, <fgs@kth.se>, <fdosanjuan@gmail.com>
  */
 @Named(value = "adminGnomeManager")
 @ConversationScoped

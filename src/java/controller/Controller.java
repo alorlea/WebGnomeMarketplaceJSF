@@ -18,7 +18,7 @@ import model.BasketItem;
 
 /**
  *
- * @author alberto
+ * @author Alberto Lorente Leal <albll@kth.se>, <a.lorenteleal@gmail.com
  */
 @TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 @Stateless

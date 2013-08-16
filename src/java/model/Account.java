@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 
 /**
  *
- * @author alberto
+ * @author Alberto Lorente Leal <albll@kth.se>, <a.lorenteleal@gmail.com
  */
 @Entity
 public class Account implements Serializable, IAccount {

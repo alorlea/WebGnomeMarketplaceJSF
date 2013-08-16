@@ -14,7 +14,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author fer
+ * @author Fernando Garcia Sanjuan, <fgs@kth.se>, <fdosanjuan@gmail.com>
  */
 @Entity
 public class Gnome implements Serializable, IGnome
