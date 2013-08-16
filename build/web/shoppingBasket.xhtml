@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/styles.css" rel="stylesheet" type="text/css" />
+        <title>APG WebShop</title>
+    </h:head>
+    <h:body>
+        <div id="container">
+        <div id="header">
+            Shopping basket for #{accountManager.currentAccount.username} 
+        </div>
+            
+       <div id="Wrapper"> 
+           <div id="content">
+        
+    <h:form>
+      <h:dataTable var="basketItem"
+                   value="#{basketManager.obtainItems(accountManager.currentAccount.username)}"
+                   border="1"
+                   binding="#{basketManager.table}">
+         <h:column>
+            <f:facet name="header">Name</f:facet>
+            #{basketItem.gnome.name}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Units</f:facet>
+            #{basketItem.amount}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Price per unit (SEK)</f:facet>
+            #{basketItem.gnome.price}
+         </h:column>
+          <h:column>
+              <f:facet name="header"> Subtotal (SEK)</f:facet>
+              #{basketItem.subTotal}
+          </h:column>
+         <h:column>
+            <f:facet name="header">Modify:</f:facet>
+            <h:commandButton value="Modify"
+                             action="#{basketManager.selectItem}"/>
+         </h:column>
+      </h:dataTable>
+        
+        <h:outputLabel for="Total">Total:</h:outputLabel>
+        <h:outputText id="Total" value="#{basketManager.total}"/>
+        <h:commandButton value="Pay" action="#{basketManager.pay(accountManager.currentAccount.username)}"/>
+        
+    </h:form>
+        
+          <h:form>
+             <h:outputLabel for="Name">Selected Item:</h:outputLabel>
+             <h:outputText id="ItemName" value="#{basketManager.selectedItem.gnome.name}"/>
+             <br/>
+             <h:outputLabel for="Units">Units:</h:outputLabel>
+             <h:inputText id="units" value="#{basketManager.selectedUnits}"/>
+             <br/>
+             <h:commandButton value="Remove Units" action="#{basketManager.removeUnits(accountManager.currentAccount.username)}"/>
+             <br/>
+             <h:outputText rendered="#{basketManager.availableMessages}"
+                           value="#{basketManager.message}"/>
+             <br/>
+             
+             <h:commandButton value="Back" action="marketplace"/>
+          </h:form>
+        </div>
+           <div id="footer">
+            
+        </div>
+               
+       </div>
+      </div>
+    </h:body>
+</html>
+

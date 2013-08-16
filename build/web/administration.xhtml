@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core">
+    <h:head >
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/styles.css" rel="stylesheet" type="text/css"/>
+        <title>APG WebShop</title>
+    </h:head>
+    <h:body>
+        <div id="container">
+        <div id="header">        
+           <h:form>
+           Administration Interface for WebShop
+           <h:commandButton value="Logout" action="#{accountManager.logout()}"/>
+           </h:form>
+        </div>
+            
+       <div id="Wrapper"> 
+        <div id="content">
+            <br/>
+        <h3>User Accounts</h3>
+            <h:form>
+              <h:dataTable var="_account"
+                           value="#{accountManager.accounts}"
+                           border="1"
+                           binding="#{accountManager.table}">
+                 <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    #{_account.username}
+                 </h:column>
+                 <h:column>
+                    <f:facet name="header">Banned</f:facet>
+                    #{_account.isBanned()}
+                 </h:column>
+                 <h:column>
+                    <f:facet name="header">Ban or Allow</f:facet>
+                    <h:commandButton value="Ban"
+                                     rendered="#{!_account.isBanned()}"
+                                     action="#{accountManager.banOrAllowUser()}"/>
+                    <h:commandButton value="Allow"
+                                     rendered="#{_account.isBanned()}"
+                                     action="#{accountManager.banOrAllowUser()}"/>
+                 </h:column>
+              </h:dataTable>                
+            </h:form>
+            <h3>Gnomes</h3>
+            <h:form >
+        
+              <h:dataTable var="_gnome"
+                           value="#{adminGnomeManager.gnomes}"
+                           border="1"
+                           binding="#{adminGnomeManager.table}">
+                 <h:column>
+                    <f:facet name="header">Name</f:facet>
+                    #{_gnome.name}
+                 </h:column>
+                 <h:column>
+                    <f:facet name="header">Available Units</f:facet>
+                    #{_gnome.stock}
+                 </h:column>
+                 <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    #{_gnome.price}
+                 </h:column>
+                 <h:column>
+                    <f:facet name="header">Select</f:facet>
+                    <h:commandButton value="Select"
+                                     action="#{adminGnomeManager.selectGnome}"/>
+                 </h:column>
+              </h:dataTable>                
+            </h:form>
+        
+          <h:form>
+             <h:outputLabel for="Name">Selected Gnome:</h:outputLabel>
+             <br/>
+             <h:inputText id="Name" value="#{adminGnomeManager.selectedName}"/>
+             <br/>
+             <h:outputLabel for="Price">Price:</h:outputLabel>
+             <h:inputText id="Price" value="#{adminGnomeManager.selectedPrice}"/>
+             <br/>
+             <h:outputLabel for="Stock">Units:</h:outputLabel>
+             <h:inputText id="Stock" value="#{adminGnomeManager.selectedUnits}"/>
+             <br/>
+             <h:commandButton value="Modify" action="#{adminGnomeManager.modifyGnome}"/>
+             <h:commandButton value="Add" action="#{adminGnomeManager.addGnome}"/>
+             <h:commandButton value="Remove" action="#{adminGnomeManager.removeGnome}"/>
+             <br/>
+             
+             <h:outputText
+                    rendered="#{adminGnomeManager.availableMessages}"
+                    value="#{adminGnomeManager.message}"/>
+         </h:form>
+        
+        </div>
+       </div>
+        <div id="footer">
+
+        </div>
+    </div>
+        
+    </h:body>
+</html>

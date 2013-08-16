@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <link href="./resources/css/styles.css" rel="stylesheet" type="text/css" />
+   <title>APG WebShop</title>
+</h:head>
+<h:body>
+      <div id="container">
+      <div id="header">
+      <h:form>
+          <h:outputLabel value="Current User: "/>
+          <h:outputText value="#{accountManager.currentAccount.username}"/>
+          <h:commandLink  action="shoppingBasket">
+              <img src="./resources/css/cart.png"/>
+          </h:commandLink>
+
+          <h:commandButton value="logout" action="#{accountManager.logout()}"/>
+      </h:form>
+      </div>
+   
+   <div id="Wrapper"> 
+       <div id="content">
+   <h:form>
+      <h:dataTable var="_gnome"
+                   value="#{gnomeManager.gnomes}"
+                   border="1"
+                   binding="#{gnomeManager.table}">
+         <h:column>
+            <f:facet name="header">Gnome</f:facet>
+            #{_gnome.name}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Available Units</f:facet>
+            #{_gnome.stock}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Price (SEK)</f:facet>
+            #{_gnome.price}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Select</f:facet>
+            <h:commandButton value="Select"
+                             action="#{gnomeManager.selectGnome}"/>
+         </h:column>
+      </h:dataTable>
+   </h:form>
+   
+      <h:form>
+         <h:outputLabel for="gnomeName">Selected Gnome: </h:outputLabel>
+         <h:outputText id="gnomeName" value="#{gnomeManager.selectedName}"/><br/>
+         <h:outputLabel for="units">Units: </h:outputLabel>
+         <h:inputText id="units" value="#{gnomeManager.selectedUnits}"/>
+         <h:commandButton value="Add to basket" action="#{gnomeManager.addToBasket(accountManager.username)}"/><br/>
+         <h:outputText rendered="#{gnomeManager.availableMessages}"
+                       value="#{gnomeManager.message}"/>
+      </h:form>
+   </div>
+       </div>
+        <div id="footer">
+            
+        </div>
+    </div>
+
+
+</h:body>
+</html>
+

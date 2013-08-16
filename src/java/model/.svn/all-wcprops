@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/HM1/!svn/ver/81/Project/src/java/model
+END
+Gnome.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/HM1/!svn/ver/81/Project/src/java/model/Gnome.java
+END
+Account.java
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HM1/!svn/ver/81/Project/src/java/model/Account.java
+END
+BasketItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/HM1/!svn/ver/81/Project/src/java/model/BasketItem.java
+END
+IGnome.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/HM1/!svn/ver/70/Project/src/java/model/IGnome.java
+END
+IAccount.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/HM1/!svn/ver/81/Project/src/java/model/IAccount.java
+END
+IBasketItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HM1/!svn/ver/77/Project/src/java/model/IBasketItem.java
+END
